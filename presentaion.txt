@@ -1,0 +1,37 @@
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil reveal_center:t reveal_control:t
+#+OPTIONS: reveal_height:-1 reveal_history:t reveal_keyboard:t
+#+OPTIONS: reveal_mathjax:nil reveal_overview:t reveal_progress:t
+#+OPTIONS: reveal_rolling_links:t reveal_width:-1 tex:t
+#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+INFOJS_OPT:
+#+REVEAL_EXTRA_CSS:
+#+REVEAL_EXTRA_JS:
+#+REVEAL_HEAD_PREAMBLE:
+#+REVEAL_HLEVEL:
+#+REVEAL_MARGIN: -1
+#+REVEAL_MATHJAX_URL: http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#+REVEAL_MAX_SCALE: -1
+#+REVEAL_MIN_SCALE: -1
+#+REVEAL_POSTAMBLE:
+#+REVEAL_PREAMBLE:
+#+REVEAL_ROOT: file:///home/andreas/apps/reveal.js
+#+REVEAL_SPEED: default
+#+REVEAL_THEME: default
+#+REVEAL_TRANS: default
+
+#+TITLE: Networks n Stuff
+
+* Background
+
+* Optimal Sparsity
+
+* Benchmark
