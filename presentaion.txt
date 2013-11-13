@@ -1,6 +1,4 @@
 #+TITLE:     Networks n Stuff
-#+AUTHOR:    Andreas Tjärnberg
-# #+EMAIL:     andreas.tjarnberg@fripost.org
 #+DESCRIPTION:
 #+KEYWORDS:
 #+LANGUAGE:  en
