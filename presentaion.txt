@@ -1,8 +1,16 @@
+#+TITLE:     Networks n Stuff
+#+AUTHOR:    Andreas Tjärnberg
+# #+EMAIL:     andreas.tjarnberg@fripost.org
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS: toc:nil H:3 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS: TeX:t LaTeX:t skip:nil d:(not LOGBOOK) todo:t pri:nil tags:t
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
 #+OPTIONS: html-preamble:t html-scripts:t html-style:t
 #+OPTIONS: html5-fancy:nil reveal_center:t reveal_control:t
 #+OPTIONS: reveal_height:-1 reveal_history:t reveal_keyboard:t
-#+OPTIONS: reveal_mathjax:nil reveal_overview:t reveal_progress:t
+#+OPTIONS: reveal_mathjax:t reveal_overview:t reveal_progress:t
 #+OPTIONS: reveal_rolling_links:t reveal_width:-1 tex:t
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)
 #+HTML_CONTAINER: div
@@ -23,12 +31,15 @@
 #+REVEAL_MIN_SCALE: -1
 #+REVEAL_POSTAMBLE:
 #+REVEAL_PREAMBLE:
-#+REVEAL_ROOT: file:///home/andreas/apps/reveal.js
 #+REVEAL_SPEED: default
-#+REVEAL_THEME: default
-#+REVEAL_TRANS: default
+#+REVEAL_THEME: beige
+#+REVEAL_TRANS: linear
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+#+XSLT:
 
-#+TITLE: Networks n Stuff
 
 * Background
 
