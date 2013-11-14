@@ -1,15 +1,17 @@
 #+TITLE:     Networks n Stuff
+#+EMAIL:
 #+DESCRIPTION:
 #+KEYWORDS:
 #+LANGUAGE:  en
-#+OPTIONS: toc:nil H:3 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS: toc:nil
+#+OPTIONS: H:3 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+OPTIONS: TeX:t LaTeX:t skip:nil d:(not LOGBOOK) todo:t pri:nil tags:t
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
 #+OPTIONS: html-preamble:t html-scripts:t html-style:t
 #+OPTIONS: html5-fancy:nil reveal_center:t reveal_control:t
 #+OPTIONS: reveal_height:-1 reveal_history:t reveal_keyboard:t
 #+OPTIONS: reveal_mathjax:t reveal_overview:t reveal_progress:t
-#+OPTIONS: reveal_rolling_links:t reveal_width:-1 tex:t
+#+OPTIONS: reveal_rolling_links:nil reveal_width:-1 tex:t
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
@@ -18,11 +20,11 @@
 #+HTML_LINK_HOME:
 #+HTML_LINK_UP:
 #+HTML_MATHJAX:
-#+INFOJS_OPT:
 #+REVEAL_EXTRA_CSS:
 #+REVEAL_EXTRA_JS:
-#+REVEAL_HEAD_PREAMBLE:
-#+REVEAL_HLEVEL:
+# Source: http://stackoverflow.com/questions/3013052/how-to-remove-border-of-a-hyper-link-image
+#+REVEAL_HEAD_PREAMBLE: <style> img { border-style: none !important; } </style>
+#+REVEAL_HLEVEL: 1
 #+REVEAL_MARGIN: -1
 #+REVEAL_MATHJAX_URL: http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 #+REVEAL_MAX_SCALE: -1
@@ -30,7 +32,7 @@
 #+REVEAL_POSTAMBLE:
 #+REVEAL_PREAMBLE:
 #+REVEAL_SPEED: default
-#+REVEAL_THEME: beige
+#+REVEAL_THEME: simple
 #+REVEAL_TRANS: linear
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
@@ -38,9 +40,16 @@
 #+LINK_HOME:
 #+XSLT:
 
+* Introduction
 
-* Background
+** file:./img/SysBio-2d.png
 
 * Optimal Sparsity
+
+** file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png
+
+** Independence
+
+** CLS
 
 * Benchmark
