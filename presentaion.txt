@@ -1,4 +1,4 @@
-#+TITLE:     Networks n Stuff
+#+TITLE:     Inferring Gene Regulatory Networks
 #+EMAIL:
 #+DESCRIPTION:
 #+KEYWORDS:
@@ -9,9 +9,11 @@
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
 #+OPTIONS: html-preamble:t html-scripts:t html-style:t
 #+OPTIONS: html5-fancy:nil reveal_center:t reveal_control:t
-#+OPTIONS: reveal_height:-1 reveal_history:t reveal_keyboard:t
+#+OPTIONS: reveal_history:t reveal_keyboard:t
 #+OPTIONS: reveal_mathjax:t reveal_overview:t reveal_progress:t
-#+OPTIONS: reveal_rolling_links:nil reveal_width:-1 tex:t
+#+OPTIONS: reveal_rolling_links:nil tex:t
+#+OPTIONS: reveal_width:1024
+#+OPTIONS: reveal_height:768
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
@@ -19,7 +21,7 @@
 #+HTML_HEAD_EXTRA:
 #+HTML_LINK_HOME:
 #+HTML_LINK_UP:
-#+HTML_MATHJAX:
+# #+HTML_MATHJAX:
 #+REVEAL_EXTRA_CSS:
 #+REVEAL_EXTRA_JS:
 # Source: http://stackoverflow.com/questions/3013052/how-to-remove-border-of-a-hyper-link-image
@@ -32,7 +34,7 @@
 #+REVEAL_POSTAMBLE:
 #+REVEAL_PREAMBLE:
 #+REVEAL_SPEED: default
-#+REVEAL_THEME: simple
+#+REVEAL_THEME: moon
 #+REVEAL_TRANS: linear
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
@@ -44,12 +46,152 @@
 
 ** file:./img/SysBio-2d.png
 
+** Experiments
+[[file:./img/experimentsOverview.png]]
+
 * Optimal Sparsity
 
 ** file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png
 
-** Independence
+** file:./img/workflow.png
 
-** CLS
+*** LOOCO
+
+#+reveal_html: <div style="font-size: 60%;">
+#+begin_src latex :exports results :results html
+    \begin{equation*}
+    \begin{array}{c c c c c}
+      & {\Large{\check{Y}}} & {\Large{\hat{Y}}} & {\Large{\check{P}}} & {\Large{\hat{P}}} \\
+      {\Large{\check{A}}} \Leftarrow & \begin{bmatrix}
+      y_{1,1} & y_{1,2} & \cdots & y_{1,n} \\
+      y_{2,1} & y_{2,2} & \cdots & y_{2,n} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      y_{m,1} & y_{m,2} & \cdots & y_{m,n}
+      \end{bmatrix} & &
+      \begin{bmatrix}
+      1      & 0      & \cdots & 0      \\
+      0      & 1      & \cdots & 0      \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0      & 0      & \cdots & 1
+      \end{bmatrix} & \\
+
+      {\Large{\hat{A}}} \Leftarrow & &  \begin{bmatrix}
+      z_{1,1} & z_{1,2} & \cdots & z_{1,n} \\
+      z_{2,1} & z_{2,2} & \cdots & z_{2,n} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      z_{m,1} & z_{m,2} & \cdots & z_{m,n}
+      \end{bmatrix} & &
+      \begin{bmatrix}
+      1      & 0      & \cdots & 0      \\
+      0      & 1      & \cdots & 0      \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0      & 0      & \cdots & 1
+      \end{bmatrix}\\
+    \end{array}
+  \end{equation*}
+#+end_src
+#+reveal_html: </div>
+
+*** LOOCO
+
+#+reveal_html: <div style="font-size: 60%;">
+#+begin_src latex :exports results :results html
+  \begin{equation*}
+    {\Large{\check{A}}} \Leftarrow \begin{array}{c c c}
+      & {\Large{\check{Y}}} & & {\Large{\check{P}}} \\
+      & \begin{bmatrix}
+        y_{1,1} & y_{1,2} & \cdots & y_{1,n} & & & & \\
+        y_{2,1} & y_{2,2} & \cdots & y_{2,n} & & & & \\
+        \vdots & \vdots & \ddots & \vdots & & & & \\
+        y_{m,1} & y_{m,2} & \cdots & y_{m,n} & & & & \\
+
+        & & & & z_{1,1} & z_{1,2} & \cdots & z_{1,n} \\
+        & & & & z_{2,1} & z_{2,2} & \cdots & z_{2,n} \\
+        & & & & \vdots & \vdots & \ddots & \vdots \\
+        & & & & z_{m,1} & z_{m,2} & \cdots & z_{m,n}
+      \end{bmatrix} & &
+
+      \begin{bmatrix}
+        1      & 0      & \cdots &       & & & & \\
+        0      & \ddots &        &       & & & {\huge{0}} & \\
+        \vdots &        & \ddots &       & & & & \\
+               &        &        & 1     & & & & \\
+
+        & & & & 1      &        &        &       \\
+        & & & &        & \ddots &        & \vdots \\
+        & {\huge{0}} & & &        &        & \ddots & 0 \\
+        & & & &          & \cdots & 0 & 1
+      \end{bmatrix}\\
+    \end{array}
+  \end{equation*}
+#+end_src
+#+reveal_html: </div>
+
+*** Linear Independence
+
+#+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
+#+reveal_html:     <tr>
+#+reveal_html:         <td width="50%" valign="center">
+file:./img/lin-lndependance.png
+#+reveal_html:         </td>
+#+reveal_html:         <td width="50%" valign="top">
+
+#+reveal_html: <div style="font-size: 80%;">
+#+begin_src latex :exports results :results html
+  \[
+  \eta_{\boldsymbol{y}_k} \triangleq ||\boldsymbol{Y}^T_{t\neq k} \boldsymbol{y}_k||_1 \\
+  \]
+#+end_src
+
+#+begin_src latex :exports results :results html
+  \[
+  \mathcal{V} \triangleq \big\{k| \eta_{\boldsymbol{y}_k} \geq \sigma_N(\boldsymbol{Y}) \; \textrm{and}\; \eta_{\boldsymbol{p}_k} \geq \sigma_N(\boldsymbol{P}) \big\}
+  \]
+#+end_src
+#+reveal_html: </div>
+
+#+reveal_html:         </td>
+#+reveal_html:     </tr>
+#+reveal_html: </table>
+
+*** Constrained Least Squares, (CLS)
 
 * Benchmark
+
+* Test stuff                                                       :noexport:
+
+** Columns
+#+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
+#+reveal_html:     <tr>
+#+reveal_html:         <td width="50%" valign="center">
+#+reveal_html: <img src="./img/lin-lndependance.png" alt="lin-lndependance.png" />
+#+reveal_html:         </td>
+#+reveal_html:         <td width="50%" valign="top">
+fuuuuuuu!
+even more cool
+something cool
+even more cool
+even more cool
+something cool
+even more cool
+even more cool
+something cool
+even more cool
+even more cool
+something cool
+even more cool
+#+reveal_html:         </td>
+#+reveal_html:     </tr>
+#+reveal_html: </table>
+** Images side by side
+#+reveal_html: <table>
+#+reveal_html: <tr>
+#+reveal_html: <td><img src="./img/lin-lndependance.png" alt="lin-lndependance.png" /></td>
+#+reveal_html: <td>
+#+reveal_html: <img src="./img/lin-lndependance.png" alt="lin-lndependance.png" />
+#+reveal_html: </td>
+#+reveal_html: <td>
+#+reveal_html: <img src="./img/lin-lndependance.png" alt="lin-lndependance.png" />
+#+reveal_html: </td>
+#+reveal_html: </tr>
+#+reveal_html: </table>
