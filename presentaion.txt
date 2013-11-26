@@ -53,3 +53,50 @@
 ** CLS
 
 * Benchmark
+
+**** Preferred algorithm
+**** Expected outcome
+**** How: Relate to
+   * Network properties
+   * Data set properties
+**** Constantly needed
+
+** Data set
+
+** Networks
+
+* Prior Knowledge from Functional Association Networks
+** Databases of Functional Association
+   * FunCoup
+   * STRING
+
+** Prior Incorporation
+
+#+REVEAL_HTML: <br>
+#+REVEAL_HTML: <br>
+
+   #+begin_src latex :exports results :results html
+     \[
+     \min_\boldsymbol{A} ||\boldsymbol{A}\boldsymbol{Y}+\boldsymbol{P}||_{F} + \zeta \cdot \|(1-w_{ij}) |a_{ij}| \|_{1}
+     \]
+   #+end_src
+
+#+REVEAL_HTML: <br>
+
+#+REVEAL_HTML: <div style="font-size: 70%;">
+   #+begin_src latex :exports results :results html
+     \[
+     W \in S^n, ~~~ w_{ij} = \left(
+       \begin{array}{ccc}
+         \dfrac{9}{10}c_{ij}, & \text{if} & i \neq j\\
+         1, & \text{if} & i = j\\
+       \end{array}
+     \right)
+     \]
+   #+end_src
+#+REVEAL_HTML: </div>
+
+
+** file:./img/lnacc-GNW-caus-sn-60pct-alla-diff.png
+
+** file:./img/lnacc-GNW-caus-sn-70pct-alla-diff.png
