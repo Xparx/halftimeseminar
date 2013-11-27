@@ -3,7 +3,7 @@
 #+DESCRIPTION:
 #+KEYWORDS:
 #+LANGUAGE:  en
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:1
 #+OPTIONS: H:3 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+OPTIONS: TeX:t LaTeX:t skip:nil d:(not LOGBOOK) todo:t pri:nil tags:t
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
@@ -46,18 +46,56 @@
 
 ** file:./img/SysBio-2d.png
 
+** Gene Regulatory Networks (GRNs)
+
+   #+ATTR_HTML: :width 50%
+   file:./img/Nordling_A10_120309.png
+
 ** Experiments
-[[file:./img/experimentsOverview.png]]
+   [[file:./img/experimentsOverview.png]]
 
-* Optimal Sparsity
+** Basic Model
 
-** file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png
+#+reveal_html: <br>
+#+begin_src latex :exports results :results html
+  \[
+  \begin{array}{r c l}
+    \dot{x}_i(t) &=& \sum_{j=1}^N a_{ij}x_j(t) + p_i(t) - f_i(t) \\
+    y_i(t) &=& x_i(t) + e_i(t)
+  \end{array}
+  \]
+#+end_src
+#+reveal_html: <br>
+#+reveal_html: <br>
+
+#+begin_src latex :exports results :results html
+  \[
+  \boldsymbol{Y} = -\boldsymbol{A}^{-1}\boldsymbol{P} +\boldsymbol{A}^{-1}\boldsymbol{F} + \boldsymbol{E}
+  \]
+#+end_src
+
+* Optimal Sparsity Selection
+
+** Sparsity
+#+reveal_html: <table>
+#+reveal_html: <tr>
+#+reveal_html: <td>
+file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png
+#+reveal_html: </td>
+#+reveal_html: <td>
+file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png
+#+reveal_html: </td>
+#+reveal_html: <td>
+file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png
+#+reveal_html: </td>
+#+reveal_html: </tr>
+#+reveal_html: </table>
 
 ** file:./img/workflow.png
 
 *** LOOCO
 
-#+reveal_html: <div style="font-size: 60%;">
+#+reveal_html: <div style="font-size: 50%;">
 #+begin_src latex :exports results :results html
     \begin{equation*}
     \begin{array}{c c c c c}
@@ -94,7 +132,7 @@
 
 *** LOOCO
 
-#+reveal_html: <div style="font-size: 60%;">
+#+reveal_html: <div style="font-size: 50%;">
 #+begin_src latex :exports results :results html
   \begin{equation*}
     {\Large{\check{A}}} \Leftarrow \begin{array}{c c c}
@@ -130,19 +168,19 @@
 *** Linear Independence
 
 #+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
-#+reveal_html:     <tr>
-#+reveal_html:         <td width="50%" valign="center">
+#+reveal_html: <tr>
+#+reveal_html: <td width="50%" valign="center">
 file:./img/lin-lndependance.png
-#+reveal_html:         </td>
-#+reveal_html:         <td width="50%" valign="top">
+#+reveal_html: </td>
+#+reveal_html: <td width="50%" valign="center">
 
-#+reveal_html: <div style="font-size: 80%;">
+#+reveal_html: <div style="font-size: 70%;">
 #+begin_src latex :exports results :results html
   \[
   \eta_{\boldsymbol{y}_k} \triangleq ||\boldsymbol{Y}^T_{t\neq k} \boldsymbol{y}_k||_1 \\
   \]
 #+end_src
-
+#+reveal_html: <br>
 #+begin_src latex :exports results :results html
   \[
   \mathcal{V} \triangleq \big\{k| \eta_{\boldsymbol{y}_k} \geq \sigma_N(\boldsymbol{Y}) \; \textrm{and}\; \eta_{\boldsymbol{p}_k} \geq \sigma_N(\boldsymbol{P}) \big\}
@@ -150,13 +188,13 @@ file:./img/lin-lndependance.png
 #+end_src
 #+reveal_html: </div>
 
-#+reveal_html:         </td>
-#+reveal_html:     </tr>
+#+reveal_html: </td>
+#+reveal_html: </tr>
 #+reveal_html: </table>
 
 *** Constrained Least Squares, (CLS)
 
-* Benchmark
+* Benchmark of GRN Inference Algorithms
 **** Preferred algorithm
 **** Expected outcome
 **** How: Relate to
@@ -164,15 +202,25 @@ file:./img/lin-lndependance.png
    * Data set properties
 **** Constantly needed
 
+** Networks
+
 ** Data set
 
-** Networks
+** Performance
+   Sign Matthew Correlation Coefficient (SMCC)
+   #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+   | A\E | 1  | 0  | -1 |
+   |   1 | TP | FN | FN |
+   |   0 | FP | TN | FP |
+   |  -1 | FN | FN | TP |
+
 
 * Prior Knowledge from Functional Association Networks
 ** Databases of Functional Association
    * FunCoup
    * STRING
 
+** FunCoup
 ** Prior Incorporation
 
 #+REVEAL_HTML: <br>
@@ -204,7 +252,8 @@ file:./img/lin-lndependance.png
 
 ** file:./img/lnacc-GNW-caus-sn-70pct-alla-diff.png
 
-* Test stuff                                                       :noexport:
+
+* Columns and images                                               :noexport:
 
 ** Columns
 #+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
@@ -241,3 +290,10 @@ even more cool
 #+reveal_html: </td>
 #+reveal_html: </tr>
 #+reveal_html: </table>
+
+* Testing transitions (not working)                                :noexport:
+Hello!
+
+#+reveal_html: <section class="none">
+#+reveal_html: <h2>What</h2>
+#+reveal_html: </section>
