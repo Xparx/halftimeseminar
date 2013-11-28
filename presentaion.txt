@@ -208,12 +208,14 @@ file:./img/lin-lndependance.png
 
 ** Performance
    Sign Matthew Correlation Coefficient (SMCC)
+
+#+REVEAL_HTML: <br>
+
    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
    | A\E | 1  | 0  | -1 |
    |   1 | TP | FN | FN |
    |   0 | FP | TN | FP |
    |  -1 | FN | FN | TP |
-
 
 * Prior Knowledge from Functional Association Networks
 ** Databases of Functional Association
