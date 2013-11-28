@@ -34,7 +34,7 @@
 #+REVEAL_POSTAMBLE:
 #+REVEAL_PREAMBLE:
 #+REVEAL_SPEED: default
-#+REVEAL_THEME: moon
+#+REVEAL_THEME: solarized
 #+REVEAL_TRANS: linear
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
@@ -77,22 +77,13 @@
 * Optimal Sparsity Selection
 
 ** Sparsity
-#+reveal_html: <table>
-#+reveal_html: <tr>
-#+reveal_html: <td>
-file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png
-#+reveal_html: </td>
-#+reveal_html: <td>
-file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png
-#+reveal_html: </td>
-#+reveal_html: <td>
-file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png
-#+reveal_html: </td>
-#+reveal_html: </tr>
-#+reveal_html: </table>
+
+   #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+   | <20>                 | <20>                 | <20>                 |
+   | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png |
 
 ** file:./img/workflow.png
-
+** file:./img/Glmnet-wo-all-inf.png
 *** LOOCO
 
 #+reveal_html: <div style="font-size: 50%;">
@@ -165,14 +156,15 @@ file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png
 #+end_src
 #+reveal_html: </div>
 
+*** file:./img/Glmnet-co-all-inf.png
 *** Linear Independence
 
 #+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
 #+reveal_html: <tr>
-#+reveal_html: <td width="50%" valign="center">
+#+reveal_html: <td width="50%" style="vertical-align:middle">
 file:./img/lin-lndependance.png
 #+reveal_html: </td>
-#+reveal_html: <td width="50%" valign="center">
+#+reveal_html: <td width="50%" style="vertical-align:middle">
 
 #+reveal_html: <div style="font-size: 70%;">
 #+begin_src latex :exports results :results html
@@ -192,9 +184,12 @@ file:./img/lin-lndependance.png
 #+reveal_html: </tr>
 #+reveal_html: </table>
 
+*** file:./img/Glmnet-inf.png
 *** Constrained Least Squares, (CLS)
 
+*** file:./Glmnet-cls-inf.png
 * Benchmark of GRN Inference Algorithms
+** _
 **** Preferred algorithm
 **** Expected outcome
 **** How: Relate to
@@ -213,6 +208,7 @@ file:./img/lin-lndependance.png
 
    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
    | A\E | 1  | 0  | -1 |
+   |-----+----+----+----|
    |   1 | TP | FN | FN |
    |   0 | FP | TN | FP |
    |  -1 | FN | FN | TP |
@@ -255,7 +251,29 @@ file:./img/lin-lndependance.png
 ** file:./img/lnacc-GNW-caus-sn-70pct-alla-diff.png
 
 
-* Columns and images                                               :noexport:
+* Columns and images                                                 :noexport:
+
+** Org tables and images
+
+*** Example 1
+    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+    | <20>                 | <20>                 | <20>                 |
+    | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png |
+
+*** Example 2
+#+reveal_html: <table>
+#+reveal_html: <tr>
+#+reveal_html: <td>
+file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png
+#+reveal_html: </td>
+#+reveal_html: <td>
+file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png
+#+reveal_html: </td>
+#+reveal_html: <td>
+file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png
+#+reveal_html: </td>
+#+reveal_html: </tr>
+#+reveal_html: </table>
 
 ** Columns
 #+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
