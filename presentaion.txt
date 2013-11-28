@@ -82,39 +82,39 @@
    | <20>                 | <20>                 | <20>                 |
    | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png |
 
-** file:./img/workflow.png
 ** file:./img/Glmnet-wo-all-inf.png
+** file:./img/workflow.png
 *** LOOCO
 
 #+reveal_html: <div style="font-size: 50%;">
 #+begin_src latex :exports results :results html
-    \begin{equation*}
+  \begin{equation*}
     \begin{array}{c c c c c}
       & {\Large{\check{Y}}} & {\Large{\hat{Y}}} & {\Large{\check{P}}} & {\Large{\hat{P}}} \\
       {\Large{\check{A}}} \Leftarrow & \begin{bmatrix}
-      y_{1,1} & y_{1,2} & \cdots & y_{1,n} \\
-      y_{2,1} & y_{2,2} & \cdots & y_{2,n} \\
-      \vdots & \vdots & \ddots & \vdots \\
-      y_{m,1} & y_{m,2} & \cdots & y_{m,n}
+        y_{1,1} & y_{1,2} & \cdots & y_{1,n} \\
+        y_{2,1} & y_{2,2} & \cdots & y_{2,n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        y_{m,1} & y_{m,2} & \cdots & y_{m,n}
       \end{bmatrix} & &
       \begin{bmatrix}
-      1      & 0      & \cdots & 0      \\
-      0      & 1      & \cdots & 0      \\
-      \vdots & \vdots & \ddots & \vdots \\
-      0      & 0      & \cdots & 1
+        1      & 0      & \cdots & 0      \\
+        0      & 1      & \cdots & 0      \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & \cdots & 1
       \end{bmatrix} & \\
 
       {\Large{\hat{A}}} \Leftarrow & &  \begin{bmatrix}
-      z_{1,1} & z_{1,2} & \cdots & z_{1,n} \\
-      z_{2,1} & z_{2,2} & \cdots & z_{2,n} \\
-      \vdots & \vdots & \ddots & \vdots \\
-      z_{m,1} & z_{m,2} & \cdots & z_{m,n}
+        z_{1,1} & z_{1,2} & \cdots & z_{1,n} \\
+        z_{2,1} & z_{2,2} & \cdots & z_{2,n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        z_{m,1} & z_{m,2} & \cdots & z_{m,n}
       \end{bmatrix} & &
       \begin{bmatrix}
-      1      & 0      & \cdots & 0      \\
-      0      & 1      & \cdots & 0      \\
-      \vdots & \vdots & \ddots & \vdots \\
-      0      & 0      & \cdots & 1
+        1      & 0      & \cdots & 0      \\
+        0      & 1      & \cdots & 0      \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & \cdots & 1
       \end{bmatrix}\\
     \end{array}
   \end{equation*}
@@ -144,7 +144,7 @@
         1      & 0      & \cdots &       & & & & \\
         0      & \ddots &        &       & & & {\huge{0}} & \\
         \vdots &        & \ddots &       & & & & \\
-               &        &        & 1     & & & & \\
+        &        &        & 1     & & & & \\
 
         & & & & 1      &        &        &       \\
         & & & &        & \ddots &        & \vdots \\
@@ -187,7 +187,7 @@ file:./img/lin-lndependance.png
 *** file:./img/Glmnet-inf.png
 *** Constrained Least Squares, (CLS)
 
-*** file:./Glmnet-cls-inf.png
+*** file:./img/Glmnet-cls-inf.png
 * Benchmark of GRN Inference Algorithms
 ** _
 **** Preferred algorithm
