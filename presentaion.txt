@@ -26,15 +26,17 @@
 #+REVEAL_EXTRA_JS:
 # Source: http://stackoverflow.com/questions/3013052/how-to-remove-border-of-a-hyper-link-image
 #+REVEAL_HEAD_PREAMBLE: <style> img { border-style: none !important; } </style>
-#+REVEAL_HLEVEL: 1
-#+REVEAL_MARGIN: -1
+#+REVEAL_HLEVEL: 2
+#+REVEAL_MARGIN: 0.1
 #+REVEAL_MATHJAX_URL: http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 #+REVEAL_MAX_SCALE: -1
 #+REVEAL_MIN_SCALE: -1
 #+REVEAL_POSTAMBLE:
 #+REVEAL_PREAMBLE:
 #+REVEAL_SPEED: default
-#+REVEAL_THEME: solarized
+# #+REVEAL_THEME: solarized
+# #+REVEAL_THEME: serif
+#+REVEAL_THEME: beige
 #+REVEAL_TRANS: linear
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
@@ -79,7 +81,6 @@
 ** Sparsity
 
    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
-   | <20>                 | <20>                 | <20>                 |
    | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png |
 
 ** file:./img/Glmnet-wo-all-inf.png
@@ -162,7 +163,7 @@
 #+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
 #+reveal_html: <tr>
 #+reveal_html: <td width="50%" style="vertical-align:middle">
-file:./img/lin-lndependance.png
+file:./img/lin-IndependeceDark.png
 #+reveal_html: </td>
 #+reveal_html: <td width="50%" style="vertical-align:middle">
 
@@ -186,22 +187,29 @@ file:./img/lin-lndependance.png
 
 *** file:./img/Glmnet-inf.png
 *** Constrained Least Squares, (CLS)
-
+    #+begin_src latex :exports results :results html
+      \[
+      \hat{\boldsymbol{A}}_{\textrm{reg}}(\tilde{\zeta}) = \arg \min_{\boldsymbol{A}} ||\boldsymbol{A} \boldsymbol{Y}+\boldsymbol{P}||_{l_2} + \tilde{\zeta} ||\boldsymbol{A}||_{l_1}
+      \]
+    #+end_src
 *** file:./img/Glmnet-cls-inf.png
+*** Results
+   #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+   | file:./img/Tjarnberg.Fig_1.png | file:./img/Tjarnberg.Fig_2.png | file:./img/Tjarnberg.Fig_3.png |
+
 * Benchmark of GRN Inference Algorithms
-** _
+** Aim
 **** Preferred algorithm
 **** Expected outcome
 **** How: Relate to
    * Network properties
    * Data set properties
-**** Constantly needed
 
-** Networks
+*** Networks
 
-** Data set
+*** Data set
 
-** Performance
+*** Performance
    Sign Matthew Correlation Coefficient (SMCC)
 
 #+REVEAL_HTML: <br>
@@ -218,8 +226,9 @@ file:./img/lin-lndependance.png
    * FunCoup
    * STRING
 
-** FunCoup
-** Prior Incorporation
+*** FunCoup
+    file:./img/FunCoup.png
+*** Prior Incorporation
 
 #+REVEAL_HTML: <br>
 #+REVEAL_HTML: <br>
@@ -245,11 +254,15 @@ file:./img/lin-lndependance.png
    #+end_src
 #+REVEAL_HTML: </div>
 
+**** file:./img/lnacc-GNW-caus-sn-60pct-alla-diff.png
 
-** file:./img/lnacc-GNW-caus-sn-60pct-alla-diff.png
+**** file:./img/lnacc-GNW-caus-sn-70pct-alla-diff.png
 
-** file:./img/lnacc-GNW-caus-sn-70pct-alla-diff.png
-
+* Conclusions
+  - Optimal Sparsity
+  - Benchmark
+  - Prior Incorporation
+** Acknowledgements
 
 * Columns and images                                                 :noexport:
 
