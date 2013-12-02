@@ -46,17 +46,19 @@
 
 * Introduction
 
-** file:./img/SysBio-2d.png
+** Network Inference
+   #+ATTR_HTML: :width 40%
+   file:./img/SysBio-2d.png
 
 ** Gene Regulatory Networks (GRNs)
+   #+ATTR_HTML: :width 40%
+   file:./img/NordlingA10Network.png
 
+** Experimental Model
    #+ATTR_HTML: :width 50%
-   file:./img/Nordling_A10_120309.png
+   [[file:./img/ExperimentalModel.png]]
 
-** Experiments
-   [[file:./img/experimentsOverview.png]]
-
-** Basic Model
+** Equation Model
 
 #+reveal_html: <br>
 #+begin_src latex :exports results :results html
@@ -81,76 +83,86 @@
 ** Sparsity
 
    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
-   | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png |
+   | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L32.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466.png | file:./img/Tjarnberg-D20131025-random-N10-L25-ID75466-Aest-L22.png |
 
 ** file:./img/Glmnet-wo-all-inf.png
-** file:./img/workflow.png
-*** LOOCO
 
-#+reveal_html: <div style="font-size: 50%;">
+    
+** Workflow
+   #+ATTR_HTML: :width 50%
+   file:./img/workflow2.png
+*** Two Independent Data sets
+    :PROPERTIES:
+    :reveal_background: #FFEC1A
+    :END:
+
+#+reveal_html: <div style="font-size: 40%;">
 #+begin_src latex :exports results :results html
   \begin{equation*}
     \begin{array}{c c c c c}
-      & {\Large{\check{Y}}} & {\Large{\hat{Y}}} & {\Large{\check{P}}} & {\Large{\hat{P}}} \\
-      {\Large{\check{A}}} \Leftarrow & \begin{bmatrix}
+      & {\Large{Y_P}} & {\Large{Y_Q}} & {\Large{P}} & {\Large{Q}} \\
+      {\Large{A_P}} \Leftarrow & \begin{bmatrix}
         y_{1,1} & y_{1,2} & \cdots & y_{1,n} \\
         y_{2,1} & y_{2,2} & \cdots & y_{2,n} \\
         \vdots & \vdots & \ddots & \vdots \\
         y_{m,1} & y_{m,2} & \cdots & y_{m,n}
       \end{bmatrix} & &
       \begin{bmatrix}
-        1      & 0      & \cdots & 0      \\
-        0      & 1      & \cdots & 0      \\
+        p_{1,1}      & 0      & \cdots & 0      \\
+        0      & p_{2,2}      & \cdots & 0      \\
         \vdots & \vdots & \ddots & \vdots \\
-        0      & 0      & \cdots & 1
+        0      & 0      & \cdots & p_{n,n}
       \end{bmatrix} & \\
-
-      {\Large{\hat{A}}} \Leftarrow & &  \begin{bmatrix}
+  
+      {\Large{A_Q}} \Leftarrow & &  \begin{bmatrix}
         z_{1,1} & z_{1,2} & \cdots & z_{1,n} \\
         z_{2,1} & z_{2,2} & \cdots & z_{2,n} \\
         \vdots & \vdots & \ddots & \vdots \\
         z_{m,1} & z_{m,2} & \cdots & z_{m,n}
       \end{bmatrix} & &
       \begin{bmatrix}
-        1      & 0      & \cdots & 0      \\
-        0      & 1      & \cdots & 0      \\
+        q_{1,1}      & 0      & \cdots & 0      \\
+        0      & q_{2,2}      & \cdots & 0      \\
         \vdots & \vdots & \ddots & \vdots \\
-        0      & 0      & \cdots & 1
+        0      & 0      & \cdots & q_{n,n}
       \end{bmatrix}\\
     \end{array}
   \end{equation*}
 #+end_src
 #+reveal_html: </div>
 
-*** LOOCO
+*** Single Data set comprised of Indepedent Samples
+    :PROPERTIES:
+    :reveal_background: #FFEC1A
+    :END:
 
-#+reveal_html: <div style="font-size: 50%;">
+#+reveal_html: <div style="font-size: 40%;">
 #+begin_src latex :exports results :results html
   \begin{equation*}
-    {\Large{\check{A}}} \Leftarrow \begin{array}{c c c}
-      & {\Large{\check{Y}}} & & {\Large{\check{P}}} \\
+    {\Large{\hat{A}}} \Leftarrow \begin{array}{c c c}
+      & {\Large{\hat{Y}}} & & {\Large{\hat{P}}} \\
       & \begin{bmatrix}
         y_{1,1} & y_{1,2} & \cdots & y_{1,n} & & & & \\
         y_{2,1} & y_{2,2} & \cdots & y_{2,n} & & & & \\
         \vdots & \vdots & \ddots & \vdots & & & & \\
         y_{m,1} & y_{m,2} & \cdots & y_{m,n} & & & & \\
-
+  
         & & & & z_{1,1} & z_{1,2} & \cdots & z_{1,n} \\
         & & & & z_{2,1} & z_{2,2} & \cdots & z_{2,n} \\
         & & & & \vdots & \vdots & \ddots & \vdots \\
         & & & & z_{m,1} & z_{m,2} & \cdots & z_{m,n}
       \end{bmatrix} & &
-
+  
       \begin{bmatrix}
-        1      & 0      & \cdots &       & & & & \\
+        p_{1,1}      & 0      & \cdots &       & & & & \\
         0      & \ddots &        &       & & & {\huge{0}} & \\
         \vdots &        & \ddots &       & & & & \\
-        &        &        & 1     & & & & \\
-
-        & & & & 1      &        &        &       \\
+        &        &        & p_{n,n}     & & & & \\
+  
+        & & & & q_{1,1}      &        &        &       \\
         & & & &        & \ddots &        & \vdots \\
         & {\huge{0}} & & &        &        & \ddots & 0 \\
-        & & & &          & \cdots & 0 & 1
+        & & & &          & \cdots & 0 & q_{n,n}
       \end{bmatrix}\\
     \end{array}
   \end{equation*}
@@ -158,7 +170,14 @@
 #+reveal_html: </div>
 
 *** file:./img/Glmnet-co-all-inf.png
+    :PROPERTIES:
+    :reveal_background: #FFEC1A
+    :END:
+
 *** Linear Independence
+    :PROPERTIES:
+    :reveal_background: #FFEC1A
+    :END:
 
 #+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
 #+reveal_html: <tr>
@@ -186,13 +205,25 @@ file:./img/lin-IndependeceDark.png
 #+reveal_html: </table>
 
 *** file:./img/Glmnet-inf.png
+    :PROPERTIES:
+    :reveal_background: #FFEC1A
+    :END:
+
 *** Constrained Least Squares, (CLS)
+    :PROPERTIES:
+    :reveal_background: #AAD400
+    :END:
+
     #+begin_src latex :exports results :results html
       \[
       \hat{\boldsymbol{A}}_{\textrm{reg}}(\tilde{\zeta}) = \arg \min_{\boldsymbol{A}} ||\boldsymbol{A} \boldsymbol{Y}+\boldsymbol{P}||_{l_2} + \tilde{\zeta} ||\boldsymbol{A}||_{l_1}
       \]
     #+end_src
 *** file:./img/Glmnet-cls-inf.png
+    :PROPERTIES:
+    :reveal_background: #AAD400
+    :END:
+
 *** Results
    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
    | file:./img/Tjarnberg.Fig_1.png | file:./img/Tjarnberg.Fig_2.png | file:./img/Tjarnberg.Fig_3.png |
@@ -205,11 +236,25 @@ file:./img/lin-IndependeceDark.png
    * Network properties
    * Data set properties
 
-*** Networks
+*** Network properties
 
-*** Data set
+    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+    | # of network:            |          20 |
+    | # states, N:             |          10 |
+    | interampatteness degree: | low VS high |
+    | sparseness degree:       |        0.25 |
 
-*** Performance
+*** Data set properties
+
+    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+    | # of Data sets:     |          40 |
+    | optimal designed P: |          20 |
+    | random double P:    |          20 |
+    | Samples / set       |          2N |
+    | kondition number:   | low VS high |
+    | SNR levels:         |           5 |
+
+*** Performance Measure
    Sign Matthew Correlation Coefficient (SMCC)
 
 #+REVEAL_HTML: <br>
@@ -220,6 +265,20 @@ file:./img/lin-IndependeceDark.png
    |   1 | TP | FN | FN |
    |   0 | FP | TN | FP |
    |  -1 | FN | FN | TP |
+
+
+*** Performance
+    #+ATTR_HTML: :width 70%
+    file:./img/OptimalPerformance.png
+*** Data property dependence
+    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+    | file:./img/OptimalPerformanceLowk.png | file:./img/OptimalPerformanceHighk.png |
+*** Practical Selection
+    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+    | file:./img/clsRSSPerformanceLowk.png | file:./img/pureRSSPerformanceLowk.png |
+*** Practical Selection
+    #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+    | file:./img/clsRSSPerformanceHighk.png | file:./img/pureRSSPerformanceHighk.png |
 
 * Prior Knowledge from Functional Association Networks
 ** Databases of Functional Association
