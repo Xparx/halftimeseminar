@@ -12,8 +12,10 @@
 #+OPTIONS: reveal_history:t reveal_keyboard:t
 #+OPTIONS: reveal_mathjax:t reveal_overview:t reveal_progress:t
 #+OPTIONS: reveal_rolling_links:nil tex:t
-#+OPTIONS: reveal_width:1024
-#+OPTIONS: reveal_height:768
+# #+OPTIONS: reveal_width:1024
+#+OPTIONS: reveal_width:1280
+# #+OPTIONS: reveal_height:768
+#+OPTIONS: reveal_height:800
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
@@ -31,8 +33,6 @@
 #+REVEAL_MATHJAX_URL: http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 #+REVEAL_MAX_SCALE: -1
 #+REVEAL_MIN_SCALE: -1
-#+REVEAL_POSTAMBLE:
-#+REVEAL_PREAMBLE:
 #+REVEAL_SPEED: default
 # #+REVEAL_THEME: solarized
 # #+REVEAL_THEME: serif
@@ -46,19 +46,22 @@
 
 * Introduction
 
-** Network Inference
+** Network Inference / Systems Biology
+
    #+ATTR_HTML: :width 40%
    file:./img/SysBio-2d.png
 
-** Gene Regulatory Networks (GRNs)
+   Inspired by /Arkin and Schaffer (2011)/
+
+** Gene Regulatory Network (GRN) models
    #+ATTR_HTML: :width 40%
    file:./img/NordlingA10Network.png
 
-** Experimental Model
+** Experimental Setup
    #+ATTR_HTML: :width 50%
    [[file:./img/ExperimentalModel.png]]
 
-** Equation Model
+** Equations Modeling the System
 
 #+reveal_html: <br>
 #+begin_src latex :exports results :results html
@@ -71,7 +74,7 @@
 #+end_src
 #+reveal_html: <br>
 #+reveal_html: <br>
-
+at Steady State
 #+begin_src latex :exports results :results html
   \[
   \boldsymbol{Y} = -\boldsymbol{A}^{-1}\boldsymbol{P} +\boldsymbol{A}^{-1}\boldsymbol{F} + \boldsymbol{E}
@@ -87,10 +90,15 @@
 
 ** file:./img/Glmnet-wo-all-inf.png
 
-    
-** Workflow
+
+** Work-flow
    #+ATTR_HTML: :width 50%
    file:./img/workflow2.png
+*** file:./img/Glmnet-co-all-inf.png
+    :PROPERTIES:
+    :reveal_background: #FFEC1A
+    :END:
+
 *** Two Independent Data sets
     :PROPERTIES:
     :reveal_background: #FFEC1A
@@ -113,7 +121,7 @@
         \vdots & \vdots & \ddots & \vdots \\
         0      & 0      & \cdots & p_{n,n}
       \end{bmatrix} & \\
-  
+
       {\Large{A_Q}} \Leftarrow & &  \begin{bmatrix}
         z_{1,1} & z_{1,2} & \cdots & z_{1,n} \\
         z_{2,1} & z_{2,2} & \cdots & z_{2,n} \\
@@ -131,7 +139,7 @@
 #+end_src
 #+reveal_html: </div>
 
-*** Single Data set comprised of Indepedent Samples
+*** Single Data set comprised of Independent Samples
     :PROPERTIES:
     :reveal_background: #FFEC1A
     :END:
@@ -146,19 +154,19 @@
         y_{2,1} & y_{2,2} & \cdots & y_{2,n} & & & & \\
         \vdots & \vdots & \ddots & \vdots & & & & \\
         y_{m,1} & y_{m,2} & \cdots & y_{m,n} & & & & \\
-  
+
         & & & & z_{1,1} & z_{1,2} & \cdots & z_{1,n} \\
         & & & & z_{2,1} & z_{2,2} & \cdots & z_{2,n} \\
         & & & & \vdots & \vdots & \ddots & \vdots \\
         & & & & z_{m,1} & z_{m,2} & \cdots & z_{m,n}
       \end{bmatrix} & &
-  
+
       \begin{bmatrix}
         p_{1,1}      & 0      & \cdots &       & & & & \\
         0      & \ddots &        &       & & & {\huge{0}} & \\
         \vdots &        & \ddots &       & & & & \\
         &        &        & p_{n,n}     & & & & \\
-  
+
         & & & & q_{1,1}      &        &        &       \\
         & & & &        & \ddots &        & \vdots \\
         & {\huge{0}} & & &        &        & \ddots & 0 \\
@@ -168,11 +176,6 @@
   \end{equation*}
 #+end_src
 #+reveal_html: </div>
-
-*** file:./img/Glmnet-co-all-inf.png
-    :PROPERTIES:
-    :reveal_background: #FFEC1A
-    :END:
 
 *** Linear Independence
     :PROPERTIES:
@@ -214,9 +217,23 @@ file:./img/lin-IndependeceDark.png
     :reveal_background: #AAD400
     :END:
 
+#+REVEAL_HTML: <br>
+
     #+begin_src latex :exports results :results html
       \[
-      \hat{\boldsymbol{A}}_{\textrm{reg}}(\tilde{\zeta}) = \arg \min_{\boldsymbol{A}} ||\boldsymbol{A} \boldsymbol{Y}+\boldsymbol{P}||_{l_2} + \tilde{\zeta} ||\boldsymbol{A}||_{l_1}
+      \hat{\boldsymbol{A}}_{\textrm{reg}}(\tilde{\zeta}) = \arg \min_{\boldsymbol{A}} ||\boldsymbol{A} \boldsymbol{Y}+\boldsymbol{P}||_{l_2} + \tilde{\zeta} ||\boldsymbol{A}||_{l_1}\\
+      \]
+    #+end_src
+
+#+REVEAL_HTML: <br>
+
+    #+begin_src latex :exports results :results html
+      \[
+      \DeclareMathOperator{\sign}{sign}
+      \begin{align}
+        \hat{\boldsymbol{A}} & = \arg \min_{\boldsymbol{A}} ||\boldsymbol{A} \boldsymbol{Y}+\boldsymbol{P}||_{l_2}\\
+        \text{s.t.}\; &~ \sign{\boldsymbol{A}} = \sign{\hat{\boldsymbol{A}}_{\textrm{reg}}} \\
+      \end{align}
       \]
     #+end_src
 *** file:./img/Glmnet-cls-inf.png
@@ -225,7 +242,7 @@ file:./img/lin-IndependeceDark.png
     :END:
 
 *** Results
-   #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
+   #+ATTR_HTML: :align center :style margin: 0px auto; :rules all :width 90%
    | file:./img/Tjarnberg.Fig_1.png | file:./img/Tjarnberg.Fig_2.png | file:./img/Tjarnberg.Fig_3.png |
 
 * Benchmark of GRN Inference Algorithms
@@ -243,16 +260,18 @@ file:./img/lin-IndependeceDark.png
     | # states, N:             |          10 |
     | interampatteness degree: | low VS high |
     | sparseness degree:       |        0.25 |
+    | Stable                   |         Yes |
 
 *** Data set properties
 
     #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
-    | # of Data sets:     |          40 |
-    | optimal designed P: |          20 |
-    | random double P:    |          20 |
-    | Samples / set       |          2N |
-    | kondition number:   | low VS high |
-    | SNR levels:         |           5 |
+    | # of Data sets:     |                      40 |
+    | optimal designed P: |                      20 |
+    | random double P:    |                      20 |
+    | Samples / set       |                      2N |
+    | condition number:   |             low VS high |
+    | SNR levels:         |                       5 |
+    | Information level:  | is 1 when SNR \leq 1000 |
 
 *** Performance Measure
    Sign Matthew Correlation Coefficient (SMCC)
@@ -273,20 +292,21 @@ file:./img/lin-IndependeceDark.png
 *** Data property dependence
     #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
     | file:./img/OptimalPerformanceLowk.png | file:./img/OptimalPerformanceHighk.png |
-*** Practical Selection
+*** Sparsity Selection
     #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
     | file:./img/clsRSSPerformanceLowk.png | file:./img/pureRSSPerformanceLowk.png |
-*** Practical Selection
+*** Sparsity Selection
     #+ATTR_HTML: :align center :style margin: 0px auto; :rules all
     | file:./img/clsRSSPerformanceHighk.png | file:./img/pureRSSPerformanceHighk.png |
 
 * Prior Knowledge from Functional Association Networks
 ** Databases of Functional Association
-   * FunCoup
-   * STRING
+   * FunCoup (Schmitt et al., 2013)
+   * STRING (Szklarczyk et al., 2011)⁠
 
 *** FunCoup
     file:./img/FunCoup.png
+
 *** Prior Incorporation
 
 #+REVEAL_HTML: <br>
@@ -313,15 +333,39 @@ file:./img/lin-IndependeceDark.png
    #+end_src
 #+REVEAL_HTML: </div>
 
-**** file:./img/lnacc-GNW-caus-sn-60pct-alla-diff.png
+*** file:./img/lnacc-GNW-caus-sn-60pct-alla-diff.png
 
-**** file:./img/lnacc-GNW-caus-sn-70pct-alla-diff.png
+*** file:./img/lnacc-GNW-caus-sn-70pct-alla-diff.png
 
 * Conclusions
-  - Optimal Sparsity
-  - Benchmark
-  - Prior Incorporation
+  - Optimal Sparsity ::
+       - Selection of Samples For LOOCO
+       - Un-biased Re-estimation of Network links
+#+REVEAL_HTML: <br>
+  - Benchmark ::
+                - Data Properties Highly Influential for Inference Performance
+                - Optimal Sparsity Selection is Beneficial when adding CLS estimation
+#+REVEAL_HTML: <br>
+  - Prior Incorporation ::
+       - Accurate symmetric prior helps.
 ** Acknowledgements
+Erik Sonnhammer
+
+Matthew Studham
+
+Dimitri Guala
+
+Thomas Schmitt
+
+Gabriel Östlund
+
+Christoph Ogris
+
+Torbjörn Nordling
+
+/Oliver Fringes/
+
+/Kristoffer Forslund/
 
 * Columns and images                                                 :noexport:
 
