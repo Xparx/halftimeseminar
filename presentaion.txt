@@ -1,7 +1,7 @@
 #+TITLE:     Inferring Gene Regulatory Networks
 #+EMAIL:
 #+DESCRIPTION:
-#+KEYWORDS:
+#+KEYWORDS: Network, Inference, Linear Dynamical Systems, System Identification
 #+LANGUAGE:  en
 #+OPTIONS: toc:1
 #+OPTIONS: H:3 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
@@ -28,7 +28,7 @@
 #+REVEAL_EXTRA_CSS:
 #+REVEAL_EXTRA_JS:
 # Source: http://stackoverflow.com/questions/3013052/how-to-remove-border-of-a-hyper-link-image
-#+REVEAL_HEAD_PREAMBLE: <style> img { border-style: none !important; } </style>
+#+REVEAL_HEAD_PREAMBLE: <style> img { border-style: none !important; } </style> <meta name="apple-mobile-web-app-capable" content="yes" /> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 #+REVEAL_HLEVEL: 2
 #+REVEAL_MARGIN: 0.1
 #+REVEAL_MATHJAX_URL: http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
@@ -367,4 +367,3 @@ Torbjörn Nordling
 /Oliver Fringes/
 
 /Kristoffer Forslund/
-
