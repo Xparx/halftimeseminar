@@ -13,9 +13,9 @@
 #+OPTIONS: reveal_mathjax:t reveal_overview:t reveal_progress:t
 #+OPTIONS: reveal_rolling_links:nil tex:t
 # #+OPTIONS: reveal_width:1024
-#+OPTIONS: reveal_width:1280
+# #+OPTIONS: reveal_width:1280
 # #+OPTIONS: reveal_height:768
-#+OPTIONS: reveal_height:800
+# #+OPTIONS: reveal_height:800
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
