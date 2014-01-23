@@ -12,10 +12,6 @@
 #+OPTIONS: reveal_history:t reveal_keyboard:t
 #+OPTIONS: reveal_mathjax:t reveal_overview:t reveal_progress:t
 #+OPTIONS: reveal_rolling_links:nil tex:t
-# #+OPTIONS: reveal_width:1024
-# #+OPTIONS: reveal_width:1280
-# #+OPTIONS: reveal_height:768
-# #+OPTIONS: reveal_height:800
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
@@ -23,7 +19,7 @@
 #+HTML_HEAD_EXTRA:
 #+HTML_LINK_HOME:
 #+HTML_LINK_UP:
-#+REVEAL_ROOT: ./reveal.js
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/2.5.0/
 # #+HTML_MATHJAX:
 #+REVEAL_EXTRA_CSS:
 #+REVEAL_EXTRA_JS:
@@ -97,12 +93,12 @@ at Steady State
    file:./img/workflow2.png
 *** file:./img/Glmnet-co-all-inf.png
     :PROPERTIES:
-    :reveal_background: #FFEC1A
+    :reveal_background: #fff368
     :END:
 
 *** Two Independent Data sets
     :PROPERTIES:
-    :reveal_background: #FFEC1A
+    :reveal_background: #fff368
     :END:
 
 #+reveal_html: <div style="font-size: 40%;">
@@ -142,7 +138,7 @@ at Steady State
 
 *** Single Data set comprised of Independent Samples
     :PROPERTIES:
-    :reveal_background: #FFEC1A
+    :reveal_background: #fff368
     :END:
 
 #+reveal_html: <div style="font-size: 40%;">
@@ -180,7 +176,7 @@ at Steady State
 
 *** Linear Independence
     :PROPERTIES:
-    :reveal_background: #FFEC1A
+    :reveal_background: #fff368
     :END:
 
 #+reveal_html: <table width="100%" cellpadding="0" cellspacing="10" border="0">
@@ -210,12 +206,12 @@ file:./img/lin-IndependeceDark.png
 
 *** file:./img/Glmnet-inf.png
     :PROPERTIES:
-    :reveal_background: #FFEC1A
+    :reveal_background: #fff368
     :END:
 
 *** Constrained Least Squares, (CLS)
     :PROPERTIES:
-    :reveal_background: #AAD400
+    :reveal_background: #dbff4b
     :END:
 
 #+REVEAL_HTML: <br>
@@ -239,7 +235,7 @@ file:./img/lin-IndependeceDark.png
     #+end_src
 *** file:./img/Glmnet-cls-inf.png
     :PROPERTIES:
-    :reveal_background: #AAD400
+    :reveal_background: #dbff4b
     :END:
 
 *** Results
