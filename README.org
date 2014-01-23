@@ -1,0 +1,5 @@
+* Presentation for my half time seminar.
+
+  Produced with [[https://www.gnu.org/software/emacs/][emacs]], [[http://orgmode.org/][org-mode]], [[https://github.com/yjwen/org-reveal/][org-reveal]] and [[http://lab.hakim.se/reveal-js/#/][reavel.js]].
+
+  To see a live version visit it [[http://xparx.github.io/halftimeseminar/#/][here]].
