@@ -322,7 +322,7 @@ file:./img/lin-IndependeceDark.png
      \[
      W \in S^n, ~~~ w_{ij} = \left(
        \begin{array}{ccc}
-         \dfrac{9}{10}c_{ij}, & \text{if} & i \neq j\\
+         \frac{9}{10}c_{ij}, & \text{if} & i \neq j\\
          1, & \text{if} & i = j\\
        \end{array}
      \right)
